@@ -1,0 +1,12 @@
+Source: ros-kinetic-uav-local-coverage
+Section: misc
+Priority: optional
+Maintainer: Micha Sende <sende@lakeside-labs.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-actionlib, ros-kinetic-catkin, ros-kinetic-cpswarm-msgs, ros-kinetic-position, ros-kinetic-roscpp
+Homepage: https://wiki.ros.org/uav_local_coverage
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-uav-local-coverage
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-actionlib, ros-kinetic-cpswarm-msgs, ros-kinetic-position, ros-kinetic-roscpp
+Description: A package that performs local coverage with an unmanned aerial vehicle (UAV).
