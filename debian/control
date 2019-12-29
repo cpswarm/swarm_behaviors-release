@@ -1,0 +1,12 @@
+Source: ros-kinetic-velocity
+Section: misc
+Priority: optional
+Maintainer: Micha Sende <sende@lakeside-labs.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-cpswarm-msgs, ros-kinetic-geometry-msgs, ros-kinetic-position, ros-kinetic-roscpp
+Homepage: https://wiki.ros.org/velocity
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-velocity
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-cpswarm-msgs, ros-kinetic-geometry-msgs, ros-kinetic-position, ros-kinetic-roscpp
+Description: A package that provides velocity related functionalities.
