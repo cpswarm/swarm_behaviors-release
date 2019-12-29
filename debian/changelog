@@ -1,0 +1,26 @@
+ros-kinetic-uav-simple-tracking (1.2.0-1xenial) xenial; urgency=high
+
+  * Fixed: Handling of target rescued event
+  * Changed: Refactor library structure
+  * Changed: Check if movement was successful
+  * Changed: Targets handled by swarm functions library
+  * Fixed: Correctly handle state of behavior algorithm
+  * Fixed: Force C++11
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Sat, 28 Dec 2019 23:00:00 -0000
+
+ros-kinetic-uav-simple-tracking (1.1.0-1xenial) xenial; urgency=high
+
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Sun, 11 Nov 2018 23:00:00 -0000
+
+ros-kinetic-uav-simple-tracking (1.0.0-1xenial) xenial; urgency=high
+
+  * Initial release of uav_simple_tracking
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Mon, 29 Oct 2018 23:00:00 -0000
+
+
