@@ -1,0 +1,17 @@
+ros-kinetic-swarm-behaviors-velocity (1.3.0-1xenial) xenial; urgency=high
+
+  * Changed: Rename velocity library to swarm_behaviors_velocity
+
+ -- Micha Sende <sende@lakeside-labs.com>  Thu, 02 Jan 2020 23:00:00 -0000
+
+ros-kinetic-swarm-behaviors-velocity (1.2.0-1xenial) xenial; urgency=high
+
+  * Changed: Refactor library structure
+  * Changed: Limit velocity for small distances
+  * Fixed: Force C++11
+  * Initial release of velocity
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Sat, 28 Dec 2019 23:00:00 -0000
+
+
