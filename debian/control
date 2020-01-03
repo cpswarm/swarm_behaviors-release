@@ -1,0 +1,13 @@
+Source: ros-kinetic-uav-optimal-coverage
+Section: misc
+Priority: optional
+Maintainer: Micha Sende <sende@lakeside-labs.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-actionlib, ros-kinetic-catkin, ros-kinetic-cpswarm-msgs, ros-kinetic-geometry-msgs, ros-kinetic-roscpp, ros-kinetic-swarm-behaviors-position, ros-kinetic-swarm-behaviors-velocity
+Homepage: https://wiki.ros.org/uav_optimal_coverage
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-uav-optimal-coverage
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-actionlib, ros-kinetic-cpswarm-msgs, ros-kinetic-geometry-msgs, ros-kinetic-roscpp, ros-kinetic-swarm-behaviors-position, ros-kinetic-swarm-behaviors-velocity
+Description: A package that performs optimal coverage with a swarm of unmanned aerial vehicles (UAVs).
+ The UAVs optimally divide the area to be covered among each other.
