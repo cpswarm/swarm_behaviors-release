@@ -1,0 +1,13 @@
+Source: ros-kinetic-swarm-behaviors
+Section: misc
+Priority: optional
+Maintainer: Micha Sende <sende@lakeside-labs.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: https://wiki.ros.org/swarm_behaviors
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-swarm-behaviors
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-swarm-behaviors-position, ros-kinetic-swarm-behaviors-velocity, ros-kinetic-uav-local-coverage, ros-kinetic-uav-optimal-coverage, ros-kinetic-uav-random-direction, ros-kinetic-uav-simple-tracking, ros-kinetic-ugv-random-walk
+Description: The swarm behaviors library contains implementations of swarm algorithms.
+ It is part of the swarm library.
