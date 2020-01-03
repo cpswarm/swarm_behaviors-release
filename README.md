@@ -1,3 +1,34 @@
+## swarm_behaviors (kinetic) - 1.3.0-1
+
+The packages in the `swarm_behaviors` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release swarm_behaviors --rosdistro kinetic` on `Fri, 03 Jan 2020 15:25:10 -0000`
+
+These packages were released:
+- `swarm_behaviors`
+- `swarm_behaviors_position`
+- `swarm_behaviors_velocity`
+- `uav_local_coverage`
+- `uav_optimal_coverage`
+- `uav_random_direction`
+- `uav_simple_tracking`
+- `ugv_random_walk`
+
+Version of package(s) in repository `swarm_behaviors`:
+
+- upstream repository: https://github.com/cpswarm/swarm_behaviors.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `1.2.0-1`
+- new version: `1.3.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.0`
+- catkin_pkg version: `0.4.15`
+- rosdep version: `0.18.0`
+- rosdistro version: `0.8.0`
+- vcstools version: `0.1.42`
+
+
 ## swarm_behaviors (kinetic) - 1.2.0-1
 
 The packages in the `swarm_behaviors` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --rosdistro kinetic --track kinetic swarm_behaviors --edit` on `Sun, 29 Dec 2019 11:50:31 -0000`
