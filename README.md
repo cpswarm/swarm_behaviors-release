@@ -1,28 +1,51 @@
-# Swarm Behaviors Library
+# swarm_behaviors_position
 
-The swarm behaviors library contains implementations of swarm algorithms. It is part of the [swarm library](https://github.com/topics/swarm-library).
+This package provides position related functionalities. It is a library package of the swarm behaviors library.
 
-![Behavior Library Structure](library_structure.png)
+## Dependencies
+This package depends on the following message definitions:
+* [geometry_msgs](https://wiki.ros.org/geometry_msgs)
+* [cpswarm_msgs](https://cpswarm.github.io/cpswarm_msgs/html/index-msg.html)
 
-## Getting Started
-The behavior library is based on the latest ROS long-term support release [ROS Kinetic Kame](https://wiki.ros.org/kinetic/). Newer versions may also work.
+The following packages of the [sensing and actuation library](https://github.com/cpswarm/sensing_actuation) are required:
+* area_provider
+* *_pos_provider
+* *_pos_controller
 
-To run swarm behaviors of this library, the [swarm functions library](https://github.com/cpswarm/swarm_functions) and the abstraction library are required. The abstraction library consists of three sub-libraries:
-* [hardware functions](https://github.com/cpswarm/hardware_functions)
-* [sensing and actuation](https://github.com/cpswarm/sensing_actuation)
-* hardware drivers
+Further required packages are:
+* [roscpp](https://wiki.ros.org/roscpp/)
+* [tf2](https://wiki.ros.org/tf2/)
 
-The communication between CPSs is based on the [CPSwarm Communication Library](https://github.com/cpswarm/swarmio).
+## Libraries
 
-Furthermore, the [cpswarm_msgs](https://github.com/cpswarm/cpswarm_msgs/) are required by most packages in this library.
+### position
+The `position` library provides position related functionalities. These functionalities can be grouped into three categories: calculations, retrieval of sensor data, and setting of actuators. The calculations include distance measurements, checking whether a position is in the defined environment, and calculation of goal positions. The sensor data includes absolute and relative bearing as well as local position. The actuators to be controlled is locomotion by providing a goal position waypoint.
 
-For detailed usage instructions, please refer to the individual ROS packages in this repository.
+#### Subscribed Topics
+* `pos_provider/pose` ([geometry_msgs/PoseStamped](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html))
+  Position and orientation of the CPS.
 
-## Contributing
-Contributions are welcome. 
+#### Published Topics
+* `pos_controller/goal_position` ([geometry_msgs/PoseStamped](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html))
+  The goal waypoint where the CPS shall move to.
 
-Please fork, make your changes, and submit a pull request. For major changes, please open an issue first and discuss it with the other authors.
+#### Services Called
+* `area/out_of_bounds` ([cpswarm_msgs/OutOfBounds](https://cpswarm.github.io/cpswarm_msgs/html/srv/OutOfBounds.html))
+  Check whether a coordinate is within the defined environment area.
 
-## Affiliation
-![CPSwarm](https://github.com/cpswarm/template/raw/master/cpswarm.png)
-This work is supported by the European Commission through the [CPSwarm H2020 project](https://cpswarm.eu) under grant no. 731946.
+#### Parameters
+* `~loop_rate` (real, default: `5.0`)
+  The frequency in Hz at which to run the control loops.
+* `~queue_size` (integer, default: `1`)
+  The size of the message queue used for publishing and subscribing to topics.
+* `~goal_timeout` (real, default: `30.0`)
+  The time in seconds that the CPS is given time to reach a destination before giving up.
+* `~goal_tolerance` (real, default: `0.1`)
+  The distance in meter that the CPS can be away from a goal while still being considered to have reached that goal.
+* `~yaw_tolerance` (real, default: `0.02`)
+  The angle in radian that the CPS can be away from a goal while still being considered to have reached that goal.
+* `~turning` (boolean, default: `true`)
+  Whether the CPS should turn its front into movement direction or not.
+
+## Code API
+[swarm_behaviors_position package code API documentation](https://cpswarm.github.io/swarm_behaviors/swarm_behaviors_position/docs/html/files.html)
