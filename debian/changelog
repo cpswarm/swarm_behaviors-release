@@ -1,0 +1,36 @@
+ros-kinetic-swarm-behaviors-position (1.3.0-1xenial) xenial; urgency=high
+
+  * Changed: Rename position library to swarm_behaviors_position
+
+ -- Micha Sende <sende@lakeside-labs.com>  Thu, 02 Jan 2020 23:00:00 -0000
+
+ros-kinetic-swarm-behaviors-position (1.2.0-1xenial) xenial; urgency=high
+
+  * Added: Obstacle detection
+  * Changed: Refactor library structure
+  * Changed: Split up navigation library, create position library and move parts to abstraction library
+  * Changed: Move obstacle avoidance to abstraction library
+  * Changed: Always use local coordinates
+  * Fixed: Force C++11
+  * Fixed: Goal computation
+  * Contributors: Micha Sende, Omar Morando
+
+ -- Micha Sende <sende@lakeside-labs.com>  Sat, 28 Dec 2019 23:00:00 -0000
+
+ros-kinetic-swarm-behaviors-position (1.1.0-1xenial) xenial; urgency=high
+
+  * Changed: Store yaw in pose
+  * Changed: Keep UAVs at same altitude
+  * Changed: Restructure navigation library
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Sun, 11 Nov 2018 23:00:00 -0000
+
+ros-kinetic-swarm-behaviors-position (1.0.0-1xenial) xenial; urgency=high
+
+  * Initial release of navigation
+  * Contributors: Micha Sende
+
+ -- Micha Sende <sende@lakeside-labs.com>  Mon, 29 Oct 2018 23:00:00 -0000
+
+
