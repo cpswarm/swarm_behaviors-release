@@ -1,28 +1,58 @@
-# Swarm Behaviors Library
+# uav_simple_tracking
 
-The swarm behaviors library contains implementations of swarm algorithms. It is part of the [swarm library](https://github.com/topics/swarm-library).
+This package tracks a target with an unmanned aerial vehicle (UAV). It is part of the swarm behaviors library.
 
-![Behavior Library Structure](library_structure.png)
+## Dependencies
+This package depends on the following message definitions:
+* [cpswarm_msgs](https://cpswarm.github.io/cpswarm_msgs/html/index-msg.html)
 
-## Getting Started
-The behavior library is based on the latest ROS long-term support release [ROS Kinetic Kame](https://wiki.ros.org/kinetic/). Newer versions may also work.
+The following library packages of the [swarm behaviors library](https://github.com/cpswarm/swarm_behaviors) are required:
+* swarm_behaviors_position
 
-To run swarm behaviors of this library, the [swarm functions library](https://github.com/cpswarm/swarm_functions) and the abstraction library are required. The abstraction library consists of three sub-libraries:
-* [hardware functions](https://github.com/cpswarm/hardware_functions)
-* [sensing and actuation](https://github.com/cpswarm/sensing_actuation)
-* hardware drivers
+The following packages of the [swarm functions library](https://github.com/cpswarm/swarm_functions/) are required:
+* target_monitor
 
-The communication between CPSs is based on the [CPSwarm Communication Library](https://github.com/cpswarm/swarmio).
+Further required packages are:
+* [roscpp](https://wiki.ros.org/roscpp/)
+* [actionlib](https://wiki.ros.org/actionlib/)
 
-Furthermore, the [cpswarm_msgs](https://github.com/cpswarm/cpswarm_msgs/) are required by most packages in this library.
+## Execution
+Run the launch file
+```
+roslaunch uav_simple_tracking uav_simple_tracking.launch
+```
+to launch the `uav_simple_tracking` node.
 
-For detailed usage instructions, please refer to the individual ROS packages in this repository.
+The launch file can be configured with following parameters:
+* `id` (integer, default: `1`)
+  The identifier (ID) of the CPS used for name spacing in simulation.
+* `output` (string, default: `screen`)
+  Whether to show the program output (`screen`) or to write it to a log file (`log`).
 
-## Contributing
-Contributions are welcome. 
+In the `param` subdirectory there is the parameter file `uav_simple_tracking.yaml` that allows to configure the behavior of the `uav_simple_tracking` node.
 
-Please fork, make your changes, and submit a pull request. For major changes, please open an issue first and discuss it with the other authors.
+## Nodes
 
-## Affiliation
-![CPSwarm](https://github.com/cpswarm/template/raw/master/cpswarm.png)
-This work is supported by the European Commission through the [CPSwarm H2020 project](https://cpswarm.eu) under grant no. 731946.
+### uav_simple_tracking
+The `uav_simple_tracking` tracks a target with a UAV. The UAV moves to the position straight over the target. The position of the target is updated by the target monitor from the [swarm functions library](https://github.com/cpswarm/swarm_functions/). When the target is lost, i.e., the target is not in the camera field of view anymore, the tracking aborts. When the target is done, i.e., handled by another CPS, the tracking succeeds.
+
+#### Action Goal
+* `uav_tracking/goal` ([cpswarm_msgs/TrackingGoal](https://cpswarm.github.io/cpswarm_msgs/html/action/Tracking.html))
+  A goal that starts the tracking behavior. It contains the ID of the target to track.
+
+#### Subscribed Topics
+* `target_update` ([cpswarm_msgs/TargetPositionEvent](https://cpswarm.github.io/cpswarm_msgs/html/msg/TargetPositionEvent.html))
+  Position updates of the target being tracked.
+* `target_lost` ([cpswarm_msgs/TargetPositionEvent](https://cpswarm.github.io/cpswarm_msgs/html/msg/TargetPositionEvent.html))
+  Whether the target being tracked has been lost.
+* `target_done` ([cpswarm_msgs/TargetPositionEvent](https://cpswarm.github.io/cpswarm_msgs/html/msg/TargetPositionEvent.html))
+  Whether the target being tracked has been handled by another CPS.
+
+#### Parameters
+* `~loop_rate` (real, default: `5.0`)
+  The frequency in Hz at which to run the control loops.
+* `~queue_size` (integer, default: `1`)
+  The size of the message queue used for publishing and subscribing to topics.
+
+## Code API
+[uav_simple_tracking package code API documentation](https://cpswarm.github.io/swarm_behaviors/uav_simple_tracking/docs/html/files.html)
