@@ -1,28 +1,40 @@
-# Swarm Behaviors Library
+# swarm_behaviors_velocity
 
-The swarm behaviors library contains implementations of swarm algorithms. It is part of the [swarm library](https://github.com/topics/swarm-library).
+This package provides velocity related functionalities. It is a library package of the swarm behaviors library.
 
-![Behavior Library Structure](library_structure.png)
+## Dependencies
+This package depends on the following message definitions:
+* [geometry_msgs](https://wiki.ros.org/geometry_msgs)
+* [cpswarm_msgs](https://cpswarm.github.io/cpswarm_msgs/html/index-msg.html)
 
-## Getting Started
-The behavior library is based on the latest ROS long-term support release [ROS Kinetic Kame](https://wiki.ros.org/kinetic/). Newer versions may also work.
+The following library packages of the [swarm behaviors library](https://github.com/cpswarm/swarm_behaviors) are required:
+* swarm_behaviors_position
 
-To run swarm behaviors of this library, the [swarm functions library](https://github.com/cpswarm/swarm_functions) and the abstraction library are required. The abstraction library consists of three sub-libraries:
-* [hardware functions](https://github.com/cpswarm/hardware_functions)
-* [sensing and actuation](https://github.com/cpswarm/sensing_actuation)
-* hardware drivers
+The following packages of the [sensing and actuation library](https://github.com/cpswarm/sensing_actuation) are required:
+* *_vel_provider
+* *_vel_controller
 
-The communication between CPSs is based on the [CPSwarm Communication Library](https://github.com/cpswarm/swarmio).
+Further required packages are:
+* [roscpp](https://wiki.ros.org/roscpp/)
 
-Furthermore, the [cpswarm_msgs](https://github.com/cpswarm/cpswarm_msgs/) are required by most packages in this library.
+## Libraries
 
-For detailed usage instructions, please refer to the individual ROS packages in this repository.
+### velocity
+The `velocity` library provides velocity related functionalities. These include retrieval of current velocity, computation of relative velocity, computation of velocity to reach a certain waypoint, and setting the actuators velocity.
 
-## Contributing
-Contributions are welcome. 
+#### Subscribed Topics
+* `vel_provider/velocity` ([geometry_msgs/TwistStamped](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html))
+  Current velocity of the CPS.
 
-Please fork, make your changes, and submit a pull request. For major changes, please open an issue first and discuss it with the other authors.
+#### Published Topics
+* `vel_controller/target_velocity` ([geometry_msgs/Twist](https://docs.ros.org/api/geometry_msgs/html/msg/PoseStamped.html))
+  The target velocity at which the CPS shall move.
 
-## Affiliation
-![CPSwarm](https://github.com/cpswarm/template/raw/master/cpswarm.png)
-This work is supported by the European Commission through the [CPSwarm H2020 project](https://cpswarm.eu) under grant no. 731946.
+#### Parameters
+* `~loop_rate` (real, default: `5.0`)
+  The frequency in Hz at which to run the control loops.
+* `~queue_size` (integer, default: `1`)
+  The size of the message queue used for publishing and subscribing to topics.
+
+## Code API
+[swarm_behaviors_velocity package code API documentation](https://cpswarm.github.io/swarm_behaviors/swarm_behaviors_velocity/docs/html/files.html)
